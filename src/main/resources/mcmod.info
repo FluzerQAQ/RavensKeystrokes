@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ravenskeystrokes",
+  "name": "Raven's Keystrokes",
+  "description": "A KeystrokesMod extracted from Raven Ghost Client XD",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/FluzerQAQ/RavensKeystrokes",
+  "updateUrl": "",
+  "authorList": ["FluzerQAQ"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
