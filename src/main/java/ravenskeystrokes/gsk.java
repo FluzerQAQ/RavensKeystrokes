@@ -10,6 +10,7 @@ public class gsk extends GuiScreen
     private GuiButton b1;
     private GuiButton b2;
     private GuiButton b3;
+    private GuiButton b4;
     private boolean d;
     private int lx;
     private int ly;
@@ -22,7 +23,8 @@ public class gsk extends GuiScreen
         final ks settings = w.d2();
         this.buttonList.add(this.b1 = new GuiButton(0, this.width / 2 - 70, this.height / 2 - 28, 140, 20, settings.isEnabled() ? I18n.format("rks.enabled") : I18n.format("rks.disabled")));
         this.buttonList.add(this.b2 = new GuiButton(1, this.width / 2 - 70, this.height / 2 - 6, 140, 20, I18n.format("rks.showmousebuttons") + (settings.isShowingMouseButtons() ? I18n.format("rks.on") : I18n.format("rks.off"))));
-        this.buttonList.add(this.b3 = new GuiButton(2, this.width / 2 - 70, this.height / 2 + 16, 140, 20, I18n.format("rks.textcolor") + gsk.cn[settings.getTextColor()]));
+        this.buttonList.add(this.b3 = new GuiButton(2, this.width / 2 - 70, this.height / 2 + 16, 140, 20, I18n.format("rks.showcps") + (settings.isShowingCPS() ? I18n.format("rks.on") : I18n.format("rks.off"))));
+        this.buttonList.add(this.b4 = new GuiButton(3, this.width / 2 - 70, this.height / 2 + 38, 140, 20, I18n.format("rks.textcolor") + gsk.cn[settings.getTextColor()]));
     }
     
     public void drawScreen(final int mouseX, final int mouseY, final float partialTicks) {
@@ -41,8 +43,12 @@ public class gsk extends GuiScreen
             this.b2.displayString = I18n.format("rks.showmousebuttons") + (settings.isShowingMouseButtons() ? I18n.format("rks.on") : I18n.format("rks.off"));
         }
         else if (button == this.b3) {
+            settings.setShowingCPS(!settings.isShowingCPS());
+            this.b3.displayString = I18n.format("rks.showcps") + (settings.isShowingCPS() ? I18n.format("rks.on") : I18n.format("rks.off"));
+        }
+        else if (button == this.b4) {
             settings.setTextColor((settings.getTextColor() == 6) ? 0 : (settings.getTextColor() + 1));
-            this.b3.displayString = I18n.format("rks.textcolor") + gsk.cn[settings.getTextColor()];
+            this.b4.displayString = I18n.format("rks.textcolor") + gsk.cn[settings.getTextColor()];
         }
     }
     

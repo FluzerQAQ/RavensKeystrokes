@@ -10,7 +10,7 @@ import net.minecraft.client.gui.*;
 import java.util.*;
 import net.minecraftforge.fml.common.eventhandler.*;
 
-@Mod(modid = "ravenskeystrokes", name = "Raven's Keystrokes", version = "1.0", acceptedMinecraftVersions = "[1.8.9]")
+@Mod(modid = "ravenskeystrokes", name = "Raven's Keystrokes", version = "1.1", acceptedMinecraftVersions = "[1.8.9]")
 public class w
 {
     public static int a;

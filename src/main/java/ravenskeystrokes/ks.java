@@ -9,13 +9,15 @@ public class ks
     private int c;
     private boolean d;
     private boolean e;
+    private boolean f;
     
     public ks() {
         this.a = 0;
         this.b = 0;
         this.c = 0;
-        this.d = false;
-        this.e = true;
+        this.d = false;//Show mouse buttons
+        this.e = true;//Enabled & Disabled
+        this.f = false;//Show CPS
     }
     
     public void loadInformation() {
@@ -47,11 +49,14 @@ public class ks
                 else if (key.equalsIgnoreCase("d")) {
                     this.d = Boolean.parseBoolean(value);
                 }
+                else if (key.equalsIgnoreCase("e")) {
+                    this.e = Boolean.parseBoolean(value);
+                }
                 else {
-                    if (!key.equalsIgnoreCase("e")) {
+                    if (!key.equalsIgnoreCase("f")) {
                         continue;
                     }
-                    this.e = Boolean.parseBoolean(value);
+                    this.f = Boolean.parseBoolean(value);
                 }
             }
             bufferedReader.close();
@@ -73,7 +78,8 @@ public class ks
             bufferedWriter.write("b:" + this.b + "\r\n");
             bufferedWriter.write("c:" + this.c + "\r\n");
             bufferedWriter.write("d:" + this.d + "\r\n");
-            bufferedWriter.write("e:" + this.e);
+            bufferedWriter.write("e:" + this.e + "\r\n");
+            bufferedWriter.write("f:" + this.f);
             bufferedWriter.close();
         }
         catch (Exception e) {
@@ -126,4 +132,12 @@ public class ks
         this.saveInformation();
     }
     
+    public boolean isShowingCPS() {
+        return this.f;
+    }
+    
+    public void setShowingCPS(final boolean showingCPS) {
+        this.f = showingCPS;
+        this.saveInformation();
+    }
 }
